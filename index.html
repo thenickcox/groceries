@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="FormSync">
+  <head>
+    <title>GoAngular Form Synchronization</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://cdn.goinstant.net/v1/platform.min.js"></script>
+    <script src="https://cdn.goinstant.net/integrations/goangular/v1.0.2/goangular.min.js"></script>
+    <script src='app.js'></script>
+    <link href='style.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div ng-controller="ItemCtrl">
+      <form ng-submit='addItem()'>
+        <input ng-model="itemText" type="text"/>
+        <input type='submit' value='add item' />
+      </form>
+      <br>
+      <ul>
+        <li ng-repeat='item in items'>
+        <input type='checkbox' ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
+        <label for="item-{{$index}}" class='bought-{{item.bought}}'>{{item.text}}</label>
+        <a href='#' ng-click='remove($index)'>X</a>
+        </li>
+      </ul>
+      <a href='#' ng-click='clearChecked()'>Check Out</a>
+      <a href='#' ng-click='clearAll()'>Clear All</a>
+      <span>{{totalItems()}} items</span>
+    </div>
+  </body>
+</html>
+

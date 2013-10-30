@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+}
+
+.bought-true {
+  text-decoration: line-through;
+  color: #666;
+}
+
+input[type=checkbox] {
+  display: none;
+}
