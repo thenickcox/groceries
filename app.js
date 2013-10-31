@@ -1,16 +1,19 @@
+'use strict';
+
 angular
-  .module('FormSync', ['goinstant'])
+  .module('FormSync', ['goinstant', 'ui.bootstrap'])
   .config(function(platformProvider) {
     platformProvider.set('https://goinstant.net/thenickcox/groceries');
   });
 
 function ItemCtrl($scope, GoAngular) {
 
+  $scope.items = [];
+
   var goAngular = new GoAngular($scope, 'ItemCtrl', { include: ['items'] });
 
   goAngular.initialize().then(
     function(){
-      $scope.items = [];
 
       $scope.addItem = function() {
         $scope.items.push({text: $scope.itemText, bought:false});
@@ -39,6 +42,17 @@ function ItemCtrl($scope, GoAngular) {
           total += 1;
         });
         return total;
+      }
+
+      $scope.remainingPercent = function(){
+        var itemCount = 0
+
+        angular.forEach($scope.items, function(item){
+          itemCount += item.bought ? 1 : 0;
+        });
+
+        console.log((itemCount / $scope.items.length) * 100);
+        return (itemCount / $scope.items.length) * 100;
       }
     }
   );
