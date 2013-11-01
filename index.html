@@ -12,21 +12,21 @@
     <link href='style.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
-    <div ng-controller="ItemCtrl">
-      <form ng-submit='addItem()'>
-        <input ng-model="itemText" type="text"/>
+    <div data-ng-controller="ItemCtrl">
+      <form data-ng-submit='addItem()'>
+        <input data-ng-model="itemText" type="text"/>
         <input type='submit' value='add item' />
       </form>
       <br>
       <ul>
-        <li ng-repeat='item in items'>
-        <input type='checkbox' ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
+        <li data-ng-repeat='item in items'>
+        <input type='checkbox' data-ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
         <label for="item-{{$index}}" class='bought-{{item.bought}}'>{{item.text}}</label>
-        <a href='#' ng-click='remove($index)'>X</a>
+        <a href='#' data-ng-click='remove($index)'>X</a>
         </li>
       </ul>
-      <a href='#' ng-click='clearChecked()'>Check Out</a>
-      <a href='#' ng-click='clearAll()'>Clear All</a>
+      <a href='#' data-ng-click='clearChecked()'>Check Out</a>
+      <a href='#' data-ng-click='clearAll()'>Clear All</a>
       <span>{{totalItems()}} items</span>
       <progress percent="remainingPercent()" class="progress-success" animate="true"></progress>
     </div>

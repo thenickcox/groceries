@@ -18,11 +18,11 @@ function ItemCtrl($scope, GoAngular) {
       $scope.addItem = function() {
         $scope.items.push({text: $scope.itemText, bought:false});
         $scope.itemText = '';
-      }
+      };
 
       $scope.clearAll = function(){
         $scope.items = [];
-      }
+      };
 
       $scope.clearChecked = function(){
         var listPreChecked = $scope.items;
@@ -30,11 +30,11 @@ function ItemCtrl($scope, GoAngular) {
         angular.forEach(listPreChecked, function(item){
           if (!item.bought) $scope.items.push(item);
         });
-      }
+      };
 
       $scope.remove = function(index){
         $scope.items.splice(index, 1);
-      }
+      };
 
       $scope.totalItems = function(){
         var total = 0;
@@ -42,7 +42,7 @@ function ItemCtrl($scope, GoAngular) {
           total += 1;
         });
         return total;
-      }
+      };
 
       $scope.remainingPercent = function(){
         var itemCount = 0
@@ -53,7 +53,7 @@ function ItemCtrl($scope, GoAngular) {
 
         console.log((itemCount / $scope.items.length) * 100);
         return (itemCount / $scope.items.length) * 100;
-      }
+      };
     }
   );
 }
