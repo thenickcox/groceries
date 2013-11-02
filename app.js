@@ -98,6 +98,5 @@ function ItemCtrl($scope, GoAngular) {
         });
         return remainingCount;
       };
-    };
-  );
+    });
 };
