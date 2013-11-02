@@ -36,12 +36,52 @@ function ItemCtrl($scope, GoAngular) {
         $scope.items.splice(index, 1);
       };
 
+      $scope.totalRemaining = function(){
+        var total = 0,
+            remainingCount = 0,
+            boughtCount = 0;
+
+        angular.forEach($scope.items, function(){
+          total += 1;
+        });
+
+        angular.forEach($scope.items, function(item){
+          remainingCount += item.bought ? 0 : 1;
+        });
+
+        boughtCount = total - remainingCount;
+
+
+        var pluralizeItem = function(num){
+          return num === 1 ? 'item' : 'items'
+        }
+
+        if (total === 0) {
+          return "Let's go shopping!";
+        }
+        else if (total === boughtCount) {
+          return 'Disco!';
+        } else {
+          return total + ' total ' + pluralizeItem(total) + ', ' + remainingCount + ' ' + pluralizeItem(remainingCount) + ' remaining'
+        }
+
+      };
+
+
       $scope.totalItems = function(){
         var total = 0;
         angular.forEach($scope.items, function(){
           total += 1;
         });
         return total;
+      };
+
+      $scope.pluralizeRemaining = function(){
+        return $scope.remainingItems() === 1 ? 'item' : 'items';
+      };
+
+      $scope.pluralizeItems = function(){
+        return $scope.items.length === 1 ? 'item' : 'items';
       };
 
       $scope.remainingPercent = function(){
@@ -54,6 +94,14 @@ function ItemCtrl($scope, GoAngular) {
         console.log((itemCount / $scope.items.length) * 100);
         return (itemCount / $scope.items.length) * 100;
       };
+
+      $scope.remainingItems = function(){
+        var remainingCount = 0;
+        angular.forEach($scope.items, function(item){
+          remainingCount += item.bought ? 0 : 1;
+        });
+        return remainingCount;
+      }
     }
   );
 }

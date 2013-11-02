@@ -1,0 +1,147 @@
+$green: #2BC870
+$sans: 'Whitney SSm A', 'Whitney SSm B', 'Helvetica', sans-serif
+$blue: rgb(114, 192, 202)
+$blue_light: rgb(112, 190, 200)
+$orange: rgb(246, 133, 34)
+
+::-webkit-input-placeholder
+  color: #cecece
+
+
+body
+  margin: 0
+  padding: 0
+  font-family: $sans
+  font-weight: 400
+  font-style: normal
+  font-size: 18px
+  background: -webkit-linear-gradient(top, $blue, $blue + 20)
+  color: #fff
+  width: 100%
+  min-height: 480px
+
+header
+  padding: 1em
+  position: fixed
+  top: 0
+  background: #fff
+  border-bottom: 2px solid $blue - 10
+  width: 100%
+  form
+    width: 90%
+
+section
+  padding: 1em
+  margin-top: 3em
+
+.container
+  width: 100%
+  margin: 0 auto
+
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    line-height: 2em
+    border-bottom: 1px solid $blue - 20
+
+.remove
+  float: right
+  color: $blue
+  line-height: 1
+  background: -webkit-linear-gradient(top, #fff, #f6f6f6)
+  border: 1px solid $blue - 20
+  position: relative
+  top: 0.3em
+  padding: 4px 7px
+  border-radius: 15px
+  text-decoration: none
+
+.bought-true
+  text-decoration: line-through
+  color: #666
+
+input
+  &[type=checkbox]
+    display: none
+  &[type=text]
+    border-top: none
+    border-left: none
+    border-right: none
+    border-bottom: 1px solid $blue + 10
+    background: #fff
+    -webkit-appearance: none
+    outline: none
+    -webkit-border-radius: 0
+    width: 100%
+    color: $blue
+    font-family: $sans
+    font-size: 18px
+    padding: 3px 2px
+
+.bottom-utilities
+  width: 100%
+  padding: 0.5em 1em
+  background: #fff
+  position: fixed
+  bottom: 0
+  border-top: 2px solid $blue - 10
+  a
+    background-image: -webkit-linear-gradient(top, #fff, #f6f6f6)
+    border: 1px solid $blue - 3
+    padding: 1em 1.75em
+    margin: 0 5% 0 auto
+    color: $blue
+    text-decoration: none
+    border-radius: 3px
+    &:hover
+      background: #f2f2f2
+
+.bought-remaining
+  text-align: center
+  width: 87%
+  color: $blue
+  display: block
+  margin-bottom: 3px
+
+.button-container
+  margin: 2em 0
+
+// Progress Bar
+
+.progress
+  height: 20px
+  margin-bottom: 20px
+  overflow: hidden
+  background-color: #f7f7f7
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(whitesmoke), to(#f9f9f9))
+  background-repeat: repeat-x
+  -webkit-border-radius: 4px
+  border-radius: 4px
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  width: 85%
+  margin-top: 3px
+  .bar
+    float: left
+    width: 0
+    height: 100%
+    font-size: 12px
+    color: #ffffff
+    text-align: center
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+    background-color: #0e90d2
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be))
+    background-image: -webkit-linear-gradient(top, #149bdf, #0480be)
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15)
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15)
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    -webkit-transition: width 0.6s ease
+    transition: width 0.6s ease
+    + .bar
+      -webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15)
+
+.progress-success .bar, .progress .bar-success
+  background-image: -webkit-linear-gradient(top, $blue, $blue - 7)

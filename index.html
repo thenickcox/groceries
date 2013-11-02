@@ -8,26 +8,36 @@
     <script src="https://cdn.goinstant.net/integrations/goangular/v1.0.2/goangular.min.js"></script>
     <script src='app.js'></script>
     <link href='style.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7494032/713102/css/fonts.css" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
   </head>
   <body>
     <div data-ng-controller="ItemCtrl">
-      <form data-ng-submit='addItem()'>
-        <input data-ng-model="itemText" type="text"/>
-        <input type='submit' value='add item' />
-      </form>
-      <br>
-      <ul>
-        <li data-ng-repeat='item in items'>
-        <input type='checkbox' data-ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
-        <label for="item-{{$index}}" class='bought-{{item.bought}}'>{{item.text}}</label>
-        <a href='#' data-ng-click='remove($index)'>X</a>
-        </li>
-      </ul>
-      <a href='#' data-ng-click='clearChecked()'>Check Out</a>
-      <a href='#' data-ng-click='clearAll()'>Clear All</a>
-      <span>{{totalItems()}} items</span>
-      <progress percent="remainingPercent()" class="progress-success" animate="true"></progress>
-    </div>
+      <header>
+        <form data-ng-submit='addItem()'>
+          <input data-ng-model="itemText" type="text" placeholder='add item, hit enter' />
+        </form>
+      </header>
+      <section>
+        <ul>
+          <li data-ng-repeat='item in items'>
+          <input type='checkbox' data-ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
+          <label for="item-{{$index}}" class='bought-{{item.bought}}'>{{item.text}}</label>
+          <a class='remove' href='#' data-ng-click='remove($index)'>X</a>
+          </li>
+        </ul>
+      </section>
+      <div class='bottom-utilities'>
+        <span class='bought-remaining'>{{totalRemaining()}}</span>
+        <progress percent="remainingPercent()" class="progress-success" animate="true"></progress>
+        <div class='button-container'>
+          <a href='#' data-ng-click='clearChecked()'>Clear Bought</a>
+          <a href='#' data-ng-click='clearAll()'>Clear All</a>
+        </div><!-- button container -->
+      </div><!-- bottom utilities -->
+    </div><!-- itemctrl -->
   </body>
 </html>
 
