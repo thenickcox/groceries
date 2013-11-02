@@ -57,7 +57,7 @@ function ItemCtrl($scope, GoAngular) {
         }
 
         if (total === 0) {
-          return "Let's go shopping!";
+          return "Let’s go shopping!";
         }
         else if (total === boughtCount) {
           return 'Disco!';
