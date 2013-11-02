@@ -39,32 +39,29 @@ function ItemCtrl($scope, GoAngular) {
       $scope.totalRemaining = function(){
         var total = 0,
             remainingCount = 0,
-            boughtCount = 0;
-
-        angular.forEach($scope.items, function(){
-          total += 1;
-        });
+            boughtCount = 0,
+            pluralizeItem = '';
 
         angular.forEach($scope.items, function(item){
+          total += 1;
           remainingCount += item.bought ? 0 : 1;
         });
 
         boughtCount = total - remainingCount;
 
-
-        var pluralizeItem = function(num){
-          return num === 1 ? 'item' : 'items'
-        }
+        pluralizeItem = function(num){
+          return num === 1 ? 'item' : 'items';
+        };
 
         if (total === 0) {
-          return "Let’s go shopping!";
+          return "Let's go shopping!";
         }
         else if (total === boughtCount) {
           return 'Disco!';
-        } else {
-          return total + ' total ' + pluralizeItem(total) + ', ' + remainingCount + ' ' + pluralizeItem(remainingCount) + ' remaining'
         }
 
+        return total + ' total ' + pluralizeItem(total) + ', ' +
+               remainingCount + ' ' + pluralizeItem(remainingCount) + ' remaining';
       };
 
 
@@ -85,13 +82,12 @@ function ItemCtrl($scope, GoAngular) {
       };
 
       $scope.remainingPercent = function(){
-        var itemCount = 0
+        var itemCount = 0;
 
         angular.forEach($scope.items, function(item){
           itemCount += item.bought ? 1 : 0;
         });
 
-        console.log((itemCount / $scope.items.length) * 100);
         return (itemCount / $scope.items.length) * 100;
       };
 
@@ -101,7 +97,7 @@ function ItemCtrl($scope, GoAngular) {
           remainingCount += item.bought ? 0 : 1;
         });
         return remainingCount;
-      }
-    }
+      };
+    };
   );
-}
+};
