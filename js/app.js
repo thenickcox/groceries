@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('FormSync', ['goinstant', 'ui.bootstrap'])
+  .module('Grocerease', ['goinstant', 'ui.bootstrap'])
   .config(function(platformProvider) {
     platformProvider.set('https://goinstant.net/thenickcox/groceries');
   });
