@@ -31,13 +31,14 @@ function ItemCtrl($scope) {
   $scope.emptyOrFullStatement = function(total, bought){
     if (total === 0) {
       return "Let's go shopping!";
-    } else if (total === bought) {
-      return 'Disco!';
     }
+    return 'Disco!';
   };
 
   $scope.progressStatement = function(total, bought){
-    $scope.emptyOrFullStatement(total, bought);
+    if (total === 0 || total === bought){
+        return $scope.emptyOrFullStatement(total, bought);
+      }
     var remainingNumber = total - bought,
         totalItemStatement = total + ' total ' + $scope.pluralizeItems(total),
         remainingItemStatement = remainingNumber + ' ' + $scope.pluralizeItems(remainingNumber) + ' remaining';

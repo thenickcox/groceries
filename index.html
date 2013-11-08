@@ -32,8 +32,8 @@
         </ul>
       </section>
       <div class='bottom-utilities'>
-        <span class='bought-remaining'>{{totalRemaining()}}</span>
-        <progress percent="remainingPercent()" class="progress-success" animate="true"></progress>
+        <span class='bought-remaining'>{{progressStatement(totalItems(), boughtCount())}}</span>
+        <progress percent="boughtPercent()" class="progress-success" animate="true"></progress>
         <div class='button-container'>
           <a href='#' data-ng-click='clearChecked()'>Clear Bought</a>
           <a href='#' data-ng-click='clearAll()'>Clear All</a>

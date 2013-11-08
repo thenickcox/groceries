@@ -9,6 +9,7 @@ describe "ItemCtrl", ->
 
   )
 
+  # test helpers
   item = text: 'apple', bought: false
   item2 = text: 'oranges', bought: false
 
@@ -79,4 +80,5 @@ describe "ItemCtrl", ->
     it 'tells the number of items we have and the number without true for a bought attribute value', ->
       expect(scope.progressStatement(1, 0)).toBe('1 total item, 1 item remaining')
       expect(scope.progressStatement(2, 1)).toBe('2 total items, 1 item remaining')
+
 
