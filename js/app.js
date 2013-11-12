@@ -75,6 +75,10 @@ function ItemCtrl($scope, GoAngular) {
     $scope.boughtPercent = function(){
       return ($scope.boughtCount() / $scope.items.length) * 100;
     };
+
+    $scope.ngAlert = function(){
+      alert('Hello');
+    };
   });
 
 };

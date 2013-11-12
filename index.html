@@ -17,12 +17,14 @@
   </head>
   <body>
     <div data-ng-controller="ItemCtrl">
+      <p id='for-tests'>This is just for testing.</p>
       <header>
         <form data-ng-submit='addItem()'>
           <input data-ng-model="itemText" type="text" placeholder='add item, hit enter' />
         </form>
       </header>
       <section>
+      <button id='alertButton' data-ng-click='ngAlert()'>Button</button>
         <ul>
           <li data-ng-repeat='item in items'>
           <input type='checkbox' data-ng-model='item.bought' name="item-{{$index}}" id="item-{{$index}}">
