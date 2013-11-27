@@ -1,19 +1,12 @@
 'use strict';
 
 angular
-  .module('Grocerease', ['goinstant', 'ui.bootstrap'])
-  .config(function(platformProvider) {
-    platformProvider.set('https://goinstant.net/thenickcox/groceries');
-  });
+  .module('Grocerease', ['ui.bootstrap']);
 
-function ItemCtrl($scope, GoAngular) {
+function ItemCtrl($scope, $window) {
 
   $scope.items = [];
 
-  var goAngular = new GoAngular($scope, 'ItemCtrl', { include: ['items'] });
-
-  goAngular.initialize().then(
-    function(){
 
     $scope.addItem = function() {
       $scope.items.push({text: $scope.itemText, bought:false});
@@ -77,8 +70,7 @@ function ItemCtrl($scope, GoAngular) {
     };
 
     $scope.ngAlert = function(){
-      alert('Hello');
+      $window.alert('Hello');
     };
-  });
 
 };
